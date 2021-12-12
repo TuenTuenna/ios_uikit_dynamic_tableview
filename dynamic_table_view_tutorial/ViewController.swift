@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController {
     
@@ -17,11 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet var resetButton: UIBarButtonItem!
     @IBOutlet var appendButton: UIBarButtonItem!
     
-    var appendingCount: Int = 0
-    var prependingCount: Int = 0
-    var prependingArray = ["1 앞에 추가" , "2 앞에 추가", "3 앞에 추가", "4 앞에 추가", "5 앞에 추가", "6 앞에 추가", "7 앞에 추가", "8 앞에 추가"]
-    
-    var addingArray = ["1 뒤에 추가" , "2 뒤에 추가", "3 뒤에 추가", "4 뒤에 추가", "5 뒤에 추가", "6 뒤에 추가", "7 뒤에 추가", "8 뒤에 추가"]
+    var viewModel: ViewModel = ViewModel()
+  
+    var disposalbleBag = Set<AnyCancellable>()
     
     var tempArray : [String] = []
 //    var tempArray : [String] = [String]()
@@ -43,6 +42,9 @@ class ViewController: UIViewController {
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
         
+        
+        // 뷰모델의 데이터 상태를 연동시킨다
+        self.setBindings()
     }
 
     
@@ -51,13 +53,13 @@ class ViewController: UIViewController {
         switch sender {
         case prependButton:
             print("앞에 추가 버튼 클릭!")
-            self.prependData()
+            self.viewModel.prependData()
         case resetButton:
             print("데이터 리셋 버튼 클릭!")
-            self.resetData()
+            self.viewModel.resetData()
         case appendButton:
             print("뒤에 추가 버튼 클릭!")
-            self.appendData()
+            self.viewModel.appendData()
         default: break
         }
     }
@@ -67,36 +69,38 @@ class ViewController: UIViewController {
 //MARK: - 테이블뷰 관련 메소드
 extension ViewController {
     
-    fileprivate func prependData(){
-        print(#fileID, #function, #line, "")
+}
+
+//MARK: - 뷰모델 관련
+extension ViewController {
+    
+    /// 뷰모델의 데이터를 뷰컨의 리스트 데이터와 연동
+    fileprivate func setBindings(){
+        print("ViewController - setBindings()")
         
-        prependingCount = prependingCount + 1
+        // list 에 대한 바인딩
+        self.viewModel.$tempArray.sink{ (updatedList : [String]) in
+            print("ViewController - updatedList.count: \(updatedList.count)")
+            self.tempArray = updatedList
+//            self.myTableView.reloadData()
+        }.store(in: &disposalbleBag)
         
-        let tempPrependingArray = prependingArray.map{ $0.appending(String(prependingCount)) }
-        
-        self.tempArray.insert(contentsOf: tempPrependingArray, at: 0)
-//        self.myTableView.reloadData()
-        self.myTableView.reloadDataAndKeepOffset()
+        // action에 대한 바인딩
+        self.viewModel.dataUpdatedAction.sink{ (addingType : ViewModel.AddingType) in
+            print("ViewController - dataUpdatedAction: \(addingType)")
+            switch addingType{
+//            case .append, .reset:
+//                self.myTableView.reloadData()
+            case .prepend:
+                self.myTableView.reloadDataAndKeepOffset()
+            default:
+                self.myTableView.reloadData()
+            }
+        }.store(in: &disposalbleBag)
     }
     
-    fileprivate func appendData(){
-        print(#fileID, #function, #line, "")
-        
-        appendingCount = appendingCount + 1
-        
-        let tempAddingArray = addingArray.map{ $0.appending(String(appendingCount)) }
-        
-        self.tempArray += tempAddingArray
-        self.myTableView.reloadData()
-    }
     
-    fileprivate func resetData(){
-        print(#fileID, #function, #line, "")
-        appendingCount = 0
-        prependingCount = 0
-        tempArray = []
-        self.myTableView.reloadData()
-    }
+    
 }
 
 //MARK: - UITableViewDelegate 관련 메소드

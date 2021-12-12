@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F27D7F2027662CB30017E3E8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27D7F1F27662CB30017E3E8 /* ViewModel.swift */; };
 		F2971A9524FE984500955157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2971A9424FE984500955157 /* AppDelegate.swift */; };
 		F2971A9724FE984500955157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2971A9624FE984500955157 /* SceneDelegate.swift */; };
 		F2971A9924FE984500955157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2971A9824FE984500955157 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F27D7F1F27662CB30017E3E8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F2971A9124FE984500955157 /* dynamic_table_view_tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dynamic_table_view_tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2971A9424FE984500955157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2971A9624FE984500955157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				F2971A9424FE984500955157 /* AppDelegate.swift */,
 				F2971A9624FE984500955157 /* SceneDelegate.swift */,
 				F2971A9824FE984500955157 /* ViewController.swift */,
+				F27D7F1F27662CB30017E3E8 /* ViewModel.swift */,
 				F2971A9A24FE984500955157 /* Main.storyboard */,
 				F2971AAA24FE9C2100955157 /* MyTableViewCell.swift */,
 				F2971AA824FE98C100955157 /* MyTableViewCell.xib */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F27D7F2027662CB30017E3E8 /* ViewModel.swift in Sources */,
 				F2971A9924FE984500955157 /* ViewController.swift in Sources */,
 				F2971AAB24FE9C2100955157 /* MyTableViewCell.swift in Sources */,
 				F2971A9524FE984500955157 /* AppDelegate.swift in Sources */,
