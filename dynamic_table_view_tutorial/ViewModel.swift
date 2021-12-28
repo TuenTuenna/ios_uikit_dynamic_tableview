@@ -24,6 +24,10 @@ class ViewModel: ObservableObject {
     
     @Published var tempArray : [String] = []
 
+    lazy var arrayCount : AnyPublisher<Int, Never> = $tempArray.map { (array: [String]) -> Int in
+        return array.count
+    }.eraseToAnyPublisher()
+    
     var dataUpdatedAction = PassthroughSubject<AddingType, Never>()
     
     init(){
