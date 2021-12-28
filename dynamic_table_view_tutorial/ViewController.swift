@@ -97,6 +97,12 @@ extension ViewController {
                 self.myTableView.reloadData()
             }
         }.store(in: &disposalbleBag)
+        
+        self.viewModel.arrayCount.sink { arrayCount in
+            print("ViewController - arrayCount: \(arrayCount)")
+            self.navigationItem.title = "배열갯수: \(arrayCount)"
+        }.store(in: &disposalbleBag)
+        
     }
     
     
