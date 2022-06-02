@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import CombineCocoa
 
 class ViewController: UIViewController {
     
@@ -42,9 +43,20 @@ class ViewController: UIViewController {
         self.myTableView.delegate = self
         self.myTableView.dataSource = self
         
+//        self.myTableView.reachedBottomPublisher()
+//            .sink(receiveValue: {
+//                print("바닥이다")
+//            }).store(in: &disposalbleBag)
+        
+        self.myTableView.contentOffsetPublisher
+            .sink(receiveValue: { offset in
+                print("테이블뷰 옵셋 : offset : \(offset)")
+            }).store(in: &disposalbleBag)
+        
         
         // 뷰모델의 데이터 상태를 연동시킨다
         self.setBindings()
+        
     }
 
     

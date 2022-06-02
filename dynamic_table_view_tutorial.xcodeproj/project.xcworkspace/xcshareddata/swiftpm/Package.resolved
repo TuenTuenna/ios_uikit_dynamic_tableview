@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "combinecocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CombineCommunity/CombineCocoa.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1a1821995b49c05032980554fc5c3f1204d53076"
+      }
+    }
+  ],
+  "version" : 2
+}

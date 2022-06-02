@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:dynamic_table_view_tutorial.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

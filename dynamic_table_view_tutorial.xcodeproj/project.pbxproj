@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		F2971AA124FE984700955157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2971A9F24FE984700955157 /* LaunchScreen.storyboard */; };
 		F2971AA924FE98C100955157 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2971AA824FE98C100955157 /* MyTableViewCell.xib */; };
 		F2971AAB24FE9C2100955157 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2971AAA24FE9C2100955157 /* MyTableViewCell.swift */; };
+		F2DDB4A928485D1900686874 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F2DDB4A828485D1900686874 /* CombineCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2DDB4A928485D1900686874 /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +94,9 @@
 			dependencies = (
 			);
 			name = dynamic_table_view_tutorial;
+			packageProductDependencies = (
+				F2DDB4A828485D1900686874 /* CombineCocoa */,
+			);
 			productName = dynamic_table_view_tutorial;
 			productReference = F2971A9124FE984500955157 /* dynamic_table_view_tutorial.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +125,9 @@
 				Base,
 			);
 			mainGroup = F2971A8824FE984500955157;
+			packageReferences = (
+				F2DDB4A728485D1900686874 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = F2971A9224FE984500955157 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F2DDB4A728485D1900686874 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F2DDB4A828485D1900686874 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2DDB4A728485D1900686874 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2971A8924FE984500955157 /* Project object */;
 }
